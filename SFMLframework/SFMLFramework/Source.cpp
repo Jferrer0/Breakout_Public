@@ -5,6 +5,7 @@
 #include <iostream>
 #include <SFML/Graphics.hpp>
 #include <SFML/Window.hpp>
+#include <sstream>
 #include <vector>
 
 using namespace std;
@@ -48,6 +49,7 @@ int main()
 	ball.setPosition(395, 550);
 
 	vector<sf::RectangleShape> blocks;
+	vector<int> scores;
 	vector<sf::FloatRect> blockHitbox;
 	vector<sf::Color> colors = { sf::Color(255,0,255), sf::Color(255,0,0), sf::Color(255,164,032), sf::Color(255,255,0), sf::Color(0,255,0), sf::Color(0,255,255) };
 
@@ -55,7 +57,13 @@ int main()
 		float blockY = 60;
 		float p = 20 * i;
 		blockY = blockY + p;
-
+		int revolutions = 1;
+		int value = -2;
+		revolutions++;
+		if (revolutions == 2) {
+			value = value + 3;
+			revolutions = 0;
+		}
 		for (float t = 0; t <= 21; t++) {
 			float blockX = 15;
 			float o = 35 * t;
@@ -67,12 +75,14 @@ int main()
 			blocks.push_back(rect);
 			sf::FloatRect rectHit = rect.getGlobalBounds();
 			blockHitbox.push_back(rectHit);
+			scores.push_back(value);
 		}
 	}
 
 	bool gameStart = false;
 
 	int score = 00000;
+	int highScore = 00000;
 
 	float ballX = 4.f;
 	float ballY = -4.f;
@@ -99,6 +109,8 @@ int main()
 
 	sf::Text display_score;
 
+	sf::Text display_highScore;
+
 	sf::Font font;
 
 	if (!font.loadFromFile("Resources/PressStart2P.ttf")) {
@@ -106,8 +118,16 @@ int main()
 	}
 
 	display_score.setFont(font);
+	display_highScore.setFont(font);
 
 	display_score.setCharacterSize(30);
+	display_highScore.setCharacterSize(30);
+
+	display_score.setFillColor(sf::Color::Black);
+	display_highScore.setFillColor(sf::Color::Black);
+
+	display_score.setPosition(20, 10);
+	display_highScore.setPosition(620, 10);
 
 	// The main loop - ends as soon as the window is closed
 	while (window.isOpen())
@@ -191,7 +211,9 @@ int main()
 					ballMovement[0] = ballMovement[0] + tempHold[0];
 					ballMovement[1] = ballMovement[1] + tempHold[1];
 					can_hit = false;
+					score = score + scores[i];
 					blockHitbox.erase(blockHitbox.begin() + i);
+					scores.erase(scores.begin() + i);
 					blocks.erase(blocks.begin() + i);
 					break;
 				}
@@ -202,16 +224,27 @@ int main()
 			for (int i = 0; i <= blocks.size(); i++) {
 				blockHitbox.clear();
 				blocks.clear();
+				scores.clear();
 			}
 			player.setPosition(375, 560);
 			ball.setPosition(395, 550);
 			ballMovement[0] = 4.f;
 			ballMovement[1] = -4.f;
+			if (score > highScore) {
+				highScore = score;
+				score = 0;
+			}
 			for (float i = 0; i <= 5; i++) {
 				float blockY = 60;
 				float p = 20 * i;
 				blockY = blockY + p;
-
+				int revolutions = 1;
+				int value = -2;
+				revolutions++;
+				if (revolutions == 2) {
+					value = value + 3;
+					revolutions = 0;
+				}
 				for (float t = 0; t <= 21; t++) {
 					float blockX = 15;
 					float o = 35 * t;
@@ -223,6 +256,7 @@ int main()
 					blocks.push_back(rect);
 					sf::FloatRect rectHit = rect.getGlobalBounds();
 					blockHitbox.push_back(rectHit);
+					scores.push_back(value);
 				}
 			}
 			gameStart = false;
@@ -256,6 +290,18 @@ int main()
 			}
 		}
 
+		stringstream ss;
+
+		ss << score;
+
+		display_score.setString(ss.str());
+
+		stringstream sd;
+
+		sd << highScore;
+
+		display_highScore.setString(sd.str());
+
 		// Clear the whole window before rendering a new frame
 		window.clear();
 		// Draw some graphical entities
@@ -265,10 +311,11 @@ int main()
 		window.draw(leftBorder);
 		window.draw(rightBorder);
 		window.draw(bottomBorder);
+		window.draw(display_score);
+		window.draw(display_highScore);
 		for (std::vector<sf::RectangleShape>::iterator it = blocks.begin(); it != blocks.end(); it++) {
 			window.draw(*it);
 		}
-		window.draw(display_score);
 		// End the current frame and display its contents on screen
 		window.display();
 	}

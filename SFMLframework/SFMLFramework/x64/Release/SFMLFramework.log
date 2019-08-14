@@ -1,9 +1,9 @@
 ﻿  Source.cpp
-C:\Users\jferr\source\repos\SFMLframework\SFMLFramework\Source.cpp(66,29): warning C4244:  'argument': conversion from 'float' to 'const unsigned __int64', possible loss of data
-C:\Users\jferr\source\repos\SFMLframework\SFMLFramework\Source.cpp(222,31): warning C4244:  'argument': conversion from 'float' to 'const unsigned __int64', possible loss of data
+C:\Users\jferr\source\repos\SFMLFramework\SFMLFramework\Source.cpp(74,29): warning C4244:  'argument': conversion from 'float' to 'const unsigned __int64', possible loss of data
+C:\Users\jferr\source\repos\SFMLFramework\SFMLFramework\Source.cpp(255,31): warning C4244:  'argument': conversion from 'float' to 'const unsigned __int64', possible loss of data
   Generating code
-  1 of 316 functions ( 0.3%) were compiled, the rest were copied from previous compilation.
+  1 of 403 functions ( 0.2%) were compiled, the rest were copied from previous compilation.
     0 functions were new in current compilation
-    1 functions had inline decision re-evaluated but remain unchanged
+    0 functions had inline decision re-evaluated but remain unchanged
   Finished generating code
-  SFMLFramework.vcxproj -> C:\Users\jferr\source\repos\SFMLframework\bin/x64\Release\SFMLFramework.exe
+  SFMLFramework.vcxproj -> C:\Users\jferr\source\repos\SFMLFramework\bin/x64\Release\SFMLFramework.exe
