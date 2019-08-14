@@ -1,0 +1,66 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Archivos de origen">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Archivos de encabezado">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="Archivos de recursos">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Archivos de origen\GameManager">
+      <UniqueIdentifier>{8eee0bab-a075-46e0-9b62-a90377d69664}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Archivos de encabezado\GameManager">
+      <UniqueIdentifier>{88ea8f34-c7cf-4a71-afc1-13eb190607e5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Archivos de origen\SpriteManager">
+      <UniqueIdentifier>{9261c708-ad54-448a-a099-6feb582b02f2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Archivos de encabezado\SpriteManager">
+      <UniqueIdentifier>{03fa4496-8c03-4459-83f2-b4e7b5774ab0}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="include\dvGameManager.h">
+      <Filter>Archivos de encabezado\GameManager</Filter>
+    </ClInclude>
+    <ClInclude Include="include\dvGameObject.h">
+      <Filter>Archivos de encabezado\GameManager</Filter>
+    </ClInclude>
+    <ClInclude Include="include\dvComponent.h">
+      <Filter>Archivos de encabezado\GameManager</Filter>
+    </ClInclude>
+    <ClInclude Include="include\dvSprite.h">
+      <Filter>Archivos de encabezado\SpriteManager</Filter>
+    </ClInclude>
+    <ClInclude Include="include\dvSpriteManager.h">
+      <Filter>Archivos de encabezado\SpriteManager</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="SFMLFramework.cpp">
+      <Filter>Archivos de origen</Filter>
+    </ClCompile>
+    <ClCompile Include="src\dvGameManager.cpp">
+      <Filter>Archivos de origen\GameManager</Filter>
+    </ClCompile>
+    <ClCompile Include="src\dvGameObject.cpp">
+      <Filter>Archivos de origen\GameManager</Filter>
+    </ClCompile>
+    <ClCompile Include="src\dvSprite.cpp">
+      <Filter>Archivos de origen\SpriteManager</Filter>
+    </ClCompile>
+    <ClCompile Include="src\dvSpriteManager.cpp">
+      <Filter>Archivos de origen\SpriteManager</Filter>
+    </ClCompile>
+    <ClCompile Include="Source.cpp">
+      <Filter>Archivos de origen</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>
